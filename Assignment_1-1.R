@@ -39,3 +39,5 @@ bind_cols(Lab01_2,Lab01_3)
 with(CrossTable(terrain, ins.win2, prop.c=F, prop.r = T, prop.t = F, prop.chisq = F)); df.swampy
 
 sum(Lab01$WHITE)
+
+#New Typing
