@@ -55,10 +55,32 @@ if(T){
   }
 }
 
+sum(all_variables$WHITE, na.rm = T)
+sum(all_variables$BLACK, na.rm = T)
+sum(all_variables$AMERI_ES, na.rm = T)
+sum(all_variables$ASIAN, na.rm = T)
+sum(all_variables$HAW_PI, na.rm = T)
+sum(all_variables$OTHER, na.rm = T)
 
-bind_cols(Lab01_2,Lab01_3)
+#Create pop_2010 data frame
+pop_2010.df <- all_variables %>%
+  select(STATE_ABBR,POP_2010,WHITE,BLACK,AMERI_ES,ASIAN,HAW_PI,OTHER) %>%
+  arrange(desc(POP_2010)) %>%
 
-with(CrossTable(terrain, ins.win2, prop.c=F, prop.r = T, prop.t = F, prop.chisq = F)); df.swampy
+  
+#create top 10 data frame
+top_10.df <- all_variables %>%
+  select(STATE_ABBR,POP_2010,WHITE,BLACK,AMERI_ES,ASIAN,HAW_PI,OTHER) %>%
+  arrange(desc(POP_2010)) %>%
+  filter(POP_2010 >= 9535483) %>%
+
+all_variables %>%
+  
+  
+
+
+
+with(CrossTable(race.df, prop.c=T, prop.r = T, prop.t = T, prop.chisq = T))
 
 sum(Lab01$WHITE)
 
