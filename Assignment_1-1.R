@@ -84,6 +84,4 @@ with(CrossTable(race.df, prop.c=T, prop.r = T, prop.t = T, prop.chisq = T))
 
 sum(Lab01$WHITE)
 
-#New Typing
-
-#NEw Typing 2
+# Deleted end Notes for update 2016-09-03 15:11
