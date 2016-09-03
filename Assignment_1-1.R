@@ -7,9 +7,9 @@ rm(list=ls())
 cat("\014")
 ### RESTART R CODE: ###
 #.rs.restartR()
-savehistory(file="GVPT849(392).Rhistory")
 if(T){
-  setwd("~/Documents/data/GVPT849(392)")
+  setwd("~//Documents/GitHubRepo/849_git")
+  savehistory(file="GVPT849(392).Rhistory")
   library(dplyr)
   library(ggplot2)
   library(gmodels)
@@ -18,7 +18,7 @@ if(T){
   library(tidyr)
 }
 if(T){
-  Lab01 <- read.csv("Export_Output_TableToExcel.csv")
+  Top10 <- read.csv("Export_Output_TableToExcel.csv")
   save(Lab01, file = "Export_Output_TableToExcel.RDdata")
   load("Export_Output_TableToExcel.RDdata")
   Lab01_2 <- Lab01 %>%
@@ -30,16 +30,6 @@ if(T){
   load("Export_Output2_TableToExcel.RData")
 }
 
+View(Lab01_b)
 
-Lab01_2 %>%
-  gather(race, state_pop, WHITE:HISPANIC)
 
-bind_cols(Lab01_2,Lab01_3)
-
-with(CrossTable(terrain, ins.win2, prop.c=F, prop.r = T, prop.t = F, prop.chisq = F)); df.swampy
-
-sum(Lab01$WHITE)
-
-#New Typing
-
-#NEw Typing 2
