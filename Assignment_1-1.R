@@ -41,3 +41,5 @@ with(CrossTable(terrain, ins.win2, prop.c=F, prop.r = T, prop.t = F, prop.chisq 
 sum(Lab01$WHITE)
 
 #New Typing
+
+#NEw Typing 2
