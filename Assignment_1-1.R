@@ -7,9 +7,18 @@ rm(list=ls())
 cat("\014")
 ### RESTART R CODE: ###
 #.rs.restartR()
-savehistory(file="GVPT849(392).Rhistory")
+#Install Packages
+if(F){
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("gmodels")
+install.packages("stargazer")
+install.packages("data.table")
+install.packages("tidyr")
+}
+
+#Load Libraries
 if(T){
-  setwd("~/Documents/data/GVPT849(392)")
   library(dplyr)
   library(ggplot2)
   library(gmodels)
@@ -17,22 +26,35 @@ if(T){
   library(data.table)
   library(tidyr)
 }
+
+#Set Working directory for Mac
+if(F){
+  setwd("~/Documents/")
+  savehistory(file="Assignment_1-1_Thompson.Rhistory")}
+
+#Set Working Directory for Windows
 if(T){
-  Lab01 <- read.csv("Export_Output_TableToExcel.csv")
-  save(Lab01, file = "Export_Output_TableToExcel.RDdata")
-  load("Export_Output_TableToExcel.RDdata")
-  Lab01_2 <- Lab01 %>%
-    select(POP_2010, WHITE:HISPANIC)
-  save(Lab01_2, file = "Export_Output_TableToExcel_2.RData")
-  load("Export_Output_TableToExcel_2.RData")
-  Lab01_b <- read.csv("Export_Output2_TableToExcel.csv")
-  save(Lab01_b, file = "Export_Output2_TableToExcel.RData")
-  load("Export_Output2_TableToExcel.RData")
+  setwd("C:/R_Git/gvpt849_git")
+  savehistory(file="Assignment_1-1_Thompson.Rhistory")
 }
 
 
-Lab01_2 %>%
-  gather(race, state_pop, WHITE:HISPANIC)
+#Load Data
+if(T){
+  #for Mac
+  if(F){
+  all_variables <- read.csv("all_variables.csv")
+  save(all_variables, file = "all_variables.RDdata")
+  load("all_variables.RData")
+  }
+  #for Windows
+  if(T){
+  all_variables <- read.csv("all_variables.csv")
+  save(all_variables, file = "all_variables.RData")
+  load("all_variables.RData")
+  }
+}
+
 
 bind_cols(Lab01_2,Lab01_3)
 
