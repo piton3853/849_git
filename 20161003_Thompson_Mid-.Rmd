@@ -1,0 +1,89 @@
+---
+title: 'GVPT392(849):  Introduction to GIS for Social Science Research'
+author: "Nicholas Thompson"
+date: "9am Oct3 - 5pm Oct 7, 2016"
+output:
+  html_document: default
+  geometry: margin=1in
+  fontsize: 12pt
+  latex_engine: xelatex
+  pdf_document: null
+subtitle: Mid-Term Exam
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The following coverages can be found in the PACD8 folder. 
+
+1.	PA_CD8_Voterfile=all registered voters for Pennsylvania, Congressional District 8.   This is north-suburban Philadelphia, including all of Bucks and part of Montgomery Counties.
+
+2.	PA_CD8_Boundary=the outline for CD 8.
+
+3.	PA_and_NJ_Counties=County boundaries for the two states.
+
+4.	Four States=State boundaries for PA, DE, NJ and MD.
+
+5.	CD8_PA_Pct_Data_2012=voter precinct data for 2012.
+
+6.	Mont_County_Recent_Movers_10_12.
+
+7.	Bucks_County_Recent_Movers_10_12.
+
+8.	CD8_Places
+
+9.	PA CD8_Tracts
+
+Three files above contain points for voters at their residences.  These are 1, 6 and 7.  For these files, the following columns contain important information:
+
+Age (and Year Born)=the age of the voter in 2012.
+
+Rep_Party, Dem_Party, Ind_Unaf_Party= the party registration of the voter:  Rep=Republican, Dem=Democrat and Ind_Unaf=Independent/Unaffiliated.
+
+And there are other items that will be less important for this exercise.
+
+----
+
+For the following questions, use whatever tools you deem appropriate from the ArcGIS package, but be sure to describe what you did to address the questions.  Be resourceful, but you need not write more than one page in response to each question.
+
+1. Aggregate the voter and mover data to the census tract level for PA CD8. 
+
+To answer this question I followed these steps:
+
+  * create geodatabase called `question_1
+  
+  * zoom to area of interest and create a bookmark called:  pa_cd8
+  
+  * download congressional district census tract data from
+  
+  http://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2012&layergroup=Congressional+Districts
+  
+  * import feature class (multiple)
+  
+  * imported: PA CD8_tracts.shp; PA_CD8_Voterfile.shp; Mont_County_Recent_Movers; Bucks_County_Recent_Movers; 
+  
+  * imported table:  `tl_2012_us_cd112.shp` (congressional districts)
+  
+  * used the Merge tool from ArcToolbox->Data Management Tools->General->Merge to create a new layer called `combined_pointFiles`
+
++ Then compute and calculate the Democratic $\%$ of total registered voters (10 points)
+
++ Compute and calculate the Democratic $\%$ of total movers in Bucks and Montgomery counties. (10 points)
+
++ Produce two maps of these percentages. (20 points)
+
+2. How would you characterize the spatial distribution of Republicans, Democrats and Independents in PA CD8?    Write up to two paragraphs based on what you have found, describing how you used ArcGIS to address the question. (20 points)
+
+3.	The data included also show two populations of recent movers from inside PA and from nearby states.    How do the recent movers in Montgomery and Bucks Counties compare by age and by party registration to the entire PA_CD8 voting population?   Explain your answer in no more than one page. (20 points)
+
+4.	Are movers more likely to relocate to particular locations than the general voter population within PA CD8?  Or are they geographically distributed about the same way?    Explain what you find in no more than one page. (20 points)  
+
+Use appropriate ArcGIS tools to address the following questions:
+
+5.   How many Bucks County voters live within one half-mile of the border with Philadelphia? (10 points)
+
+6.   How many Bucks County voters live within one mile of the border with Philadelphia? (10 points)
+
+7.  What percentage are those two figures of the total Bucks County voter population? (10 points)
+
