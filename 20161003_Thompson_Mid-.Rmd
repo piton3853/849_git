@@ -63,9 +63,9 @@ To answer this question I followed these steps:
   
   * imported: PA CD8_tracts.shp; PA_CD8_Voterfile.shp; Mont_County_Recent_Movers; Bucks_County_Recent_Movers; 
   
-  * imported table:  `tl_2012_us_cd112.shp` (congressional districts)
+  * visited factfinder.census.gov to obtain SF1 table for geocode to join tables.  Downloaded Congressional Disctric 8, 2007-2011 ACS 5 year estimates, census tracts (all census tracts in Bucks and Montgomery counties).  I renamed the tab `tractsPop2012`.  imported table:  `tractsPop2012.csv` (congressional districts)
   
-  * used the Merge tool from ArcToolbox->Data Management Tools->General->Merge to create a new layer called `combined_pointFiles`
+  * 
 
 + Then compute and calculate the Democratic $\%$ of total registered voters (10 points)
 
