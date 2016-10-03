@@ -61,7 +61,13 @@ To answer this question I followed these steps:
   
   * import feature class (multiple)
   
-  * imported: PA CD8_tracts.shp; PA_CD8_Voterfile.shp; Mont_County_Recent_Movers; Bucks_County_Recent_Movers; 
+  * imported: PA CD8_tracts.shp; PA_CD8_Voterfile.shp; Mont_County_Recent_Movers; Bucks_County_Recent_Movers
+  
+  * conducted a `join by spatial location` between `Bucks_County_Recent_Movers_10_12` and `Mont_County_Recent_Movers_10_12` into a new map layer called `counties_spatial_join`.
+  
+  * hid all fields from attribute table excep essential fields.
+  
+  * 
   
   * visited factfinder.census.gov to obtain SF1 table for geocode to join tables.  Downloaded Congressional Disctric 8, 2007-2011 ACS 5 year estimates, census tracts (all census tracts in Bucks and Montgomery counties).  I renamed the tab `tractsPop2012`.  imported table:  `tractsPop2012.csv` (congressional districts)
   

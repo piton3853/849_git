@@ -153,7 +153,10 @@ $(document).ready(function () {
 <p><a href="http://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2012&amp;layergroup=Congressional+Districts" class="uri">http://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2012&amp;layergroup=Congressional+Districts</a></p>
 <ul>
 <li><p>import feature class (multiple)</p></li>
-<li><p>imported: PA CD8_tracts.shp; PA_CD8_Voterfile.shp; Mont_County_Recent_Movers; Bucks_County_Recent_Movers;</p></li>
+<li><p>imported: PA CD8_tracts.shp; PA_CD8_Voterfile.shp; Mont_County_Recent_Movers; Bucks_County_Recent_Movers</p></li>
+<li><p>conducted a <code>join by spatial location</code> between <code>Bucks_County_Recent_Movers_10_12</code> and <code>Mont_County_Recent_Movers_10_12</code> into a new map layer called <code>counties_spatial_join</code>.</p></li>
+<li><p>hid all fields from attribute table excep essential fields.</p></li>
+<li></li>
 <li><p>visited factfinder.census.gov to obtain SF1 table for geocode to join tables. Downloaded Congressional Disctric 8, 2007-2011 ACS 5 year estimates, census tracts (all census tracts in Bucks and Montgomery counties). I renamed the tab <code>tractsPop2012</code>. imported table: <code>tractsPop2012.csv</code> (congressional districts)</p></li>
 <li></li>
 <li><p>Then compute and calculate the Democratic <span class="math inline">\(\%\)</span> of total registered voters (10 points)</p></li>
