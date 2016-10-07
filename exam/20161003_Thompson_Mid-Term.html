@@ -176,7 +176,20 @@ Percentages &amp; 53.23 \% &amp; 52.99 \%
 \end{tabular}
 \end{table}
 <ul>
+<<<<<<< HEAD:exam/20161003_Thompson_Mid-Term.html
 <li>Compute and calculate the Democratic <span class="math inline">\(\%\)</span> of total movers in Bucks and Montgomery counties (10 points).</li>
+=======
+<li><p>import feature class (multiple)</p></li>
+<li><p>imported: PA CD8_tracts.shp; PA_CD8_Voterfile.shp; Mont_County_Recent_Movers; Bucks_County_Recent_Movers</p></li>
+<li><p>conducted a <code>join by spatial location</code> between <code>Bucks_County_Recent_Movers_10_12</code> and <code>Mont_County_Recent_Movers_10_12</code> into a new map layer called <code>counties_spatial_join</code>.</p></li>
+<li><p>hid all fields from attribute table excep essential fields.</p></li>
+<li></li>
+<li><p>visited factfinder.census.gov to obtain SF1 table for geocode to join tables. Downloaded Congressional Disctric 8, 2007-2011 ACS 5 year estimates, census tracts (all census tracts in Bucks and Montgomery counties). I renamed the tab <code>tractsPop2012</code>. imported table: <code>tractsPop2012.csv</code> (congressional districts)</p></li>
+<li></li>
+<li><p>Then compute and calculate the Democratic <span class="math inline">\(\%\)</span> of total registered voters (10 points)</p></li>
+<li><p>Compute and calculate the Democratic <span class="math inline">\(\%\)</span> of total movers in Bucks and Montgomery counties. (10 points)</p></li>
+<li><p>Produce two maps of these percentages. (20 points)</p></li>
+>>>>>>> 2c44d36b5c9255f6338a9965458830a522204bbc:20161003_Thompson_Mid-.html
 </ul>
 <p><span style="color:navy">To calculate the percentage of democratic movers I created two fields in <code>BC</code> and <code>MC</code> once callde <code>zip_dif</code> and another called <code>move2</code>. The <code>zip_dif</code> field captured a difference between the originating zip code (<code>ozipcode</code>) of each voter in the respective counties and the destination zip code (<code>dzipcode</code>). Next, a phython code converted the <code>zip_dif</code> field into a <span class="math inline">\(1\)</span> or a <span class="math inline">\(0\)</span>. This allowed me to total the number of people that moved from one zip code to another. Table 2 shows the results of this computation.</p>
 <pre class="r"><code>def is_positive(x):
