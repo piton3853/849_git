@@ -3,13 +3,13 @@ title: 'GVPT392(849):  Introduction to GIS for Social Science Research'
 author: "Nicholas Thompson"
 date: "9am Oct3 - 5pm Oct 7, 2016"
 output:
-  html_document: default
   pdf_document:
     fig_caption: yes
     fig_height: 9.02
     fig_width: 7
     keep_tex: yes
     latex_engine: xelatex
+  html_document: default
 subtitle: Mid-Term Exam
 ---
 
