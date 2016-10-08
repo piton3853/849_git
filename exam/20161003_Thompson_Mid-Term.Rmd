@@ -190,8 +190,13 @@ Voter Data                   & 49.57                    & 17.50                 
 \end{tabular}
 \end{table}
 
+To discover the 
 # Appendix
 
 ![Figure 1:  Democratic Voters and Movers](question_1-2.png)
 
 ![Figure 2:  Parties in Space](question_2.png)
+
+![Figure 3:  18-29 Year Old Movers in Bucks and Montgomery County](question_3a.png)
+![Figure 4:  30-49 Year Old Movers in Bucks and Montgomery County](question_3c.png)
+![Figure 5:  50 Years Old and Up Movers in Bucks and Montgomery County](question_3c.png)
