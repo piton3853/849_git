@@ -154,7 +154,13 @@ To answer this question I pulled the descriptive statistics for each dataset (`B
  
  The Republican numbers in Bucks county are close to the overall voter mean, but the Montgomery mean is higher.  This indicates that Republicans are migrating to Montgomery county.  The mean of Democratic voters in both Bucks and Montgomery counties is significantly lower than in the `voter` database.  This may indicate less migration for Democratic voters.
  
- The age demographics do not tell us as much without a geographic dispersion.  The mean and standard deviation of the three data sets is relatively similar, as depicted in Table 4.
+ The age demographics do not tell us as much without a geographic dispersion.  The mean and standard deviation of the three data sets is relatively similar, as depicted in Table 4.  As depicted in Figures 3-5, the age dispersion.  
+ 
+ In order to complete the maps I combined a choropleth map of each party (red for Repubulican, blue for Democrat, green for Independent) with a centroid map of the overall voting population.  This normalized the regiserted voters by each age group.  While the ages look identical in each map, the scales of the circles are different.  Note the low numbers of 18-29 year old voters in comparison to 30-49 year olds.
+ 
+ To create the centroid maps I followed this sequence.  First I created XY coordinate for each dataset by adding a new X and Y field respectively.  Next using the "Calculate Gemoetry" function for each X and Y respecitvely.  Next, I joined the `tracts` map with the `BC`, `MC`, and `voter` data sets.  Then I exported the joined tract datasets to a `tractCentroids` table.  This table now had the centroids for each voting block.  
+ 
+ To finalize the method I created a feature class from the XY `tractCentroids` table.  Opening the cataloge in ArcMap, I right clicked on `trackCentroids` and clicked "Create Feature Class" > "From XY Table".  I make the coordinate system the same as all of my other maps, the South Pennsylvania 1984.  Finally, I saved the file as a File and Personal Geodatabase called `voterTractCentroids`.
 
 
 \begin{table}[]
@@ -190,7 +196,12 @@ Voter Data                   & 49.57                    & 17.50                 
 \end{tabular}
 \end{table}
 
-To discover the 
+\clearpage
+
+4.  Are movers more likely to relocate to particular locations than the general voter populations within PA CD8?  Or are they geoographically distributed about the same way?  Explain what you find in no more than one page.
+
+Based upon the analysis form the maps generated in Figures 3-5, the propensity for 
+
 # Appendix
 
 ![Figure 1:  Democratic Voters and Movers](question_1-2.png)
