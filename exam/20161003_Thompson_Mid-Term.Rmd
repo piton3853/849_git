@@ -200,7 +200,9 @@ Voter Data                   & 49.57                    & 17.50                 
 
 4.  Are movers more likely to relocate to particular locations than the general voter populations within PA CD8?  Or are they geoographically distributed about the same way?  Explain what you find in no more than one page.
 
-Based upon the analysis form the maps generated in Figures 3-5, the propensity for 
+Based upon the analysis form the maps generated in Figures 3-5, the propensity for 18-29 year olds is to reside in large numbers in Philadeliphia across the spectrum of voting preferences.  People in the 30-49 age blocks are more likely to live in the more rural areas of bucks county, with a strong showing in the more suburban areas (there are a large numer in the city, but less than the younger voting block).  Finally, the oldest block of voters is more broadly dispersed and in generally smaller numbers overall.
+
+The migration pattern appears to be that younger people migrate to the city, whil middle aged people have a propensity to migrate back to the suburbs.  Seniors are likely to live in all of the areas in a similar pattern to middle aged voters.
 
 # Appendix
 
@@ -209,5 +211,13 @@ Based upon the analysis form the maps generated in Figures 3-5, the propensity f
 ![Figure 2:  Parties in Space](question_2.png)
 
 ![Figure 3:  18-29 Year Old Movers in Bucks and Montgomery County](question_3a.png)
-![Figure 4:  30-49 Year Old Movers in Bucks and Montgomery County](question_3c.png)
+![Figure 4:  30-49 Year Old Movers in Bucks and Montgomery County](question_3b.png)
 ![Figure 5:  50 Years Old and Up Movers in Bucks and Montgomery County](question_3c.png)
+
+\clearpage
+
+5.  How many Bucks County voters live within one half-mile of the border with Philadelphia?  (10 points)
+
+6.  How many Bucks County voters live within one mile of the border with Philadelphia?  (10 points)
+
+7.  What percentage are those two figures of the total Bucks County voter population?
