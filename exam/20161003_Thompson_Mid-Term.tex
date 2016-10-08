@@ -115,6 +115,7 @@
   \date{9am Oct3 - 5pm Oct 7, 2016}
 
 
+
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
 \let\oldparagraph\paragraph
@@ -124,7 +125,6 @@
 \let\oldsubparagraph\subparagraph
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
-
 
 \begin{document}
 \maketitle
@@ -219,18 +219,18 @@ within the geodatabase. This data management process ended Phase 2.
 ~~~~~~In Phase 3, I used the \texttt{Spatial\ Join} feature (hereafter
 known as \texttt{SJ}) to systemtaically join the layers. First I
 conducted a \texttt{SJ} of \texttt{voters} to \texttt{tracts} and
-created a new layer called \texttt{tracts05}. Next I created the
+created a new layer called \texttt{tracts01}. Next I created the
 following \texttt{SJ}s:
 
-~~~~~~a. \texttt{BC} \(+\) \texttt{tracts} \(=\) \texttt{tracts04}
+~~~~~~a. \texttt{tracts} \(+\) \texttt{BC} \(=\) \texttt{tracts02}
 
-~~~~~~b. \texttt{MC} \(+\) \texttt{tracts} \(=\) \texttt{tracts06}
+~~~~~~b. \texttt{tracts} \(+\) \texttt{MC} \(=\) \texttt{tracts04}
 
-~~~~~~c. \texttt{tracts05} \(+\) \texttt{tracts04} \(=\)
-\texttt{tracts09}
+~~~~~~c. \texttt{tracts01} \(+\) \texttt{tracts02} \(=\)
+\texttt{tracts03}
 
-~~~~~~d. \texttt{tracts09} \(+\) \texttt{tracts06} \(=\)
-\texttt{tracts15}
+~~~~~~d. \texttt{tracts03} \(+\) \texttt{tracts04} \(=\)
+\texttt{tracts07}
 
 The last combination created a spatially joined dataset depicting the
 north-suburban part of Philadelphia.
@@ -316,10 +316,76 @@ Percentages & 43.63 \%   & 53.65 \% & 52.66 \%
   Produce two maps of these percentages.
 \end{itemize}
 
+To produce my maps I followed some formatting guidelines. First, I
+always included a legend, scale, and north seeking arrow. Also included
+was my name as the author and the date I finalized the map. For this
+first set of maps I normalized the \texttt{Sum\_Sum\_Democratic}
+variable over the \texttt{Sum\_Sum\_vote\_total} for the first map (as
+labeled in Figure 1). I normalized the \texttt{Sum\_Sum\_Democratic}
+variable over the \texttt{Sum\_Sum\_vote\_total} variable for the second
+requirement.
+
+This depicts a strong concentration of Democratic voters located in the
+southeastern portion of the country. Democratic voters show a propensity
+for migration with a large percentage moving in and around the
+southeastern portion of the county.
+
+Note that this data does not reflect the \texttt{MOVER} field from the
+\texttt{MC} dataset. The \texttt{MOVER} variable was not used because it
+was only available in the \texttt{MC} dataset and only depicted a small
+swath of migration running from northwest to southeast along the
+southwestern third of the county.
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{question_1.png}
-\caption{Democratic Voter Percentages}
+\includegraphics{question_1-2.png}
+\caption{Figure 1: Democratic Voters and Movers}
 \end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  How would you characterize the spatial distribution of Republicans,
+  Democrats, and Independents in PA CD8? Write up two paragraphs based
+  on what you have found, describing how you used ArcGIS to address the
+  question. (20 points)
+\end{enumerate}
+
+Democrats, by and large, tend to be located in the south eastern part of
+the map (which is northern Philadelphia). Republicans are a
+significantly lesser amount of the population and tend to inhabit the
+norther part of the voting district, with a concentration in the center
+of Montgomery county in the southwest. Independents show similar
+patterns to the Republicans but on a much smaller scale.
+
+I used a percentage of total voters for each party and compared them to
+one another, as depicted in Figure 2. This distribution by percentage
+was calculated using the \texttt{Sum\_Sum\_Democrat},
+\texttt{Sum\_Sum\_Republican} and \texttt{Sum\_Sum\_Independent}
+variables normalized by \texttt{Sum\_Sum\_vote\_total} variable. I
+utilized a five quantile break.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{question_2.png}
+\caption{Figure 2: Parties in Space}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  The data included also show two populations of recent movers from
+  inside PA and from nearby states. How do the recent movers in
+  Montogomery and Bucks counties compare by age and by party
+  registration to the entire PA\_CD8 voting populations? Explain your
+  answer in no more than one page.
+\end{enumerate}
+
+To answer this question I pulled the descriptive statistics for each
+dataset (\texttt{BC}, \texttt{MC}, )
 
 \end{document}

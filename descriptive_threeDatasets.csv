@@ -1,0 +1,10 @@
+Dataset,Party,Vote_Totals,Mean,Std_Dev
+Montgomery,Republican,2230,0.4167,0.493
+Montgomery,Democratic,2016,0.3768,0.4845
+Montgomery,Independent,1043,0.1949,0.3962
+Bucks,Republican,16808,0.3436,0.4748
+Bucks,Democratic,22555,0.461,0.4984
+Bucks,Independent,8979,0.1835,0.3871
+Voter,Republican,46085,0.3413,0.4742
+Voter,Democratic,71048,0.5263,0.4993
+Voter,Independent,16334,0.121,0.3261

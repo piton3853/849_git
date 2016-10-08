@@ -3,13 +3,13 @@ title: 'GVPT392(849):  Introduction to GIS for Social Science Research'
 author: "Nicholas Thompson"
 date: "9am Oct3 - 5pm Oct 7, 2016"
 output:
-  html_document: default
   pdf_document:
     fig_caption: yes
     fig_height: 9.02
     fig_width: 7
     keep_tex: yes
     latex_engine: xelatex
+  html_document: default
 subtitle: Mid-Term Exam
 ---
 
@@ -142,4 +142,39 @@ I used a percentage of total voters for each party and compared them to one anot
 
 3.  The data included also show two populations of recent movers from inside PA and from nearby states.  How do the recent movers in Montogomery and Bucks counties compare by age and by party registration to the entire PA_CD8 voting populations?  Explain your answer in no more than one page.
 
+```{r data analysis, include=FALSE}
+rm(list=ls())
+cat("\014")
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(stargazer)
+setwd("C:/R_Git/gvpt849_git/exam")
+data <- read.csv("descriptive_threeDatasets.csv", sep = ",",header = T)
+save(data, file = "data.RData")
+load("data.RData")
+stargazer(data,type = 'text')
+```
+To answer this question I pulled the descriptive statistics for each dataset (`BC`, `MC`, `voter`) and collected the number of people that voted in each party, the party means, and the party standard deviations.  I also collected the mean, standard deviation, minimum, and maximum values of the voters from each of the three datasets.
 
+First, I put all of the data together, grouping it by dataset.  The results are depicted in Table 3.  Montgomery voters
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{lllll}
+Dataset    & Party       & Vote\_Totals & Mean   & Std\_Dev \\
+\hline
+Montgomery & Republican  & 2230         & 0.4167 & 0.4930    \\
+Montgomery & Democratic  & 2016         & 0.3768 & 0.4845   \\
+Montgomery & Independent & 1043         & 0.1949 & 0.3962   \\
+Bucks      & Republican  & 16808        & 0.3436 & 0.4748   \\
+Bucks      & Democratic  & 22555        & 0.461  & 0.4984   \\
+Bucks      & Independent & 8979         & 0.1835 & 0.3871   \\
+Voter      & Republican  & 46085        & 0.3413 & 0.4742   \\
+Voter      & Democratic  & 71048        & 0.5263 & 0.4993   \\
+Voter      & Independent & 16334        & 0.121  & 0.3261  
+\hline
+\end{tabular}
+\end{table}

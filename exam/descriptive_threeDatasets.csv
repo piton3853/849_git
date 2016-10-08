@@ -1,0 +1,13 @@
+dataset,party,count_raw,mean,sd
+mongomery,republican,2230,0.4167,0.493
+mongomery,democratic,2016,0.3768,0.4845
+mongomery,independent,1043,0.1949,0.3962
+mongomery,nonvoters,62,NA,NA
+bucks,republican,16808,0.3436,0.4748
+bucks,democratic,22555,0.461,0.4984
+bucks,independent,8979,0.1835,0.3871
+bucks,nonvoters,581,NA,NA
+voter,republican,46085,0.3413,0.4742
+voter,democratic,71048,0.5263,0.4993
+voter,independent,16334,0.121,0.3261
+voter,nonvoters,1533,NA,NA
