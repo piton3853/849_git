@@ -115,7 +115,6 @@
   \date{9am Oct3 - 5pm Oct 7, 2016}
 
 
-
 % Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
 \let\oldparagraph\paragraph
@@ -125,6 +124,7 @@
 \let\oldsubparagraph\subparagraph
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+
 
 \begin{document}
 \maketitle
@@ -259,7 +259,7 @@ significant difference in the percentages either pre- or post-join.
 \begin{table}[]
 \centering
 \caption{Percentage of Democratic Voters}
-\begin{tabular}{lll}
+\begin{tabular}{ccc}
 Field       & Pre-Join & Post-Join \\
 \hline
 Democratic  & 71,048   & 133,467   \\
@@ -301,11 +301,13 @@ Table 2 shows the results of this computation.
 \centering
 \caption{Percentage of Democratic Movers}
 \label{my-label}
-\begin{tabular}{llll}
+\begin{tabular}{cccc}
 Field       & Montgomery & Bucks    & Sum      \\
 \hline
 Democratic  & 2,016      & 22,555   & 24,571   \\
 move\_total & 4,620      & 42,040   & 46,660   \\
+\hline
+\hline
 Percentages & 43.63 \%   & 53.65 \% & 52.66 \%
 \end{tabular}
 \end{table}
@@ -334,13 +336,8 @@ Note that this data does not reflect the \texttt{MOVER} field from the
 \texttt{MC} dataset. The \texttt{MOVER} variable was not used because it
 was only available in the \texttt{MC} dataset and only depicted a small
 swath of migration running from northwest to southeast along the
-southwestern third of the county.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{question_1-2.png}
-\caption{Figure 1: Democratic Voters and Movers}
-\end{figure}
+southwestern third of the county. All map figures will be available in
+the Appendix.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -367,12 +364,6 @@ was calculated using the \texttt{Sum\_Sum\_Democrat},
 variables normalized by \texttt{Sum\_Sum\_vote\_total} variable. I
 utilized a five quantile break.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{question_2.png}
-\caption{Figure 2: Parties in Space}
-\end{figure}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
@@ -386,6 +377,82 @@ utilized a five quantile break.
 \end{enumerate}
 
 To answer this question I pulled the descriptive statistics for each
-dataset (\texttt{BC}, \texttt{MC}, )
+dataset (\texttt{BC}, \texttt{MC}, \texttt{voter}) and collected the
+number of people that voted in each party, the party means, and the
+party standard deviations (Table 3). I also collected the mean, standard
+deviation, minimum, and maximum values of the voters from each of the
+three datasets (Table 4).
+
+The Montgomery county movers are represented by a higher percentage of
+Republicans than Democrats (Independents are behing Republicans and
+Democrats in all three datasets. The Bucks county Democratic movers
+(\(46.10\%\)) have a significantly higher percentage than Montgomery
+county movers (\(37.68\%\)). This indicates that either Democrats in
+Bucks county are migrating at higher rates, or that the percentage of
+voters in both counties falls around those means.
+
+One way to differentiate between the two possibilities is to compare the
+means of the total voter population from the district. If we assume a
+normal distribution of Republican, Democratic, and Independent voters
+throughout the district then the averages of \(34.13\%\) for
+Republicans, \(52.63\%\) for Democratic party voters, and \(12.10\%\)
+for Independent voters should represent similar means the two counties.
+
+The Republican numbers in Bucks county are close to the overall voter
+mean, but the Montgomery mean is higher. This indicates that Republicans
+are migrating to Montgomery county. The mean of Democratic voters in
+both Bucks and Montgomery counties is significantly lower than in the
+\texttt{voter} database. This may indicate less migration for Democratic
+voters.
+
+The age demographics do not tell us as much without a geographic
+dispersion. The mean and standard deviation of the three data sets is
+relatively similar, as depicted in Table 4.
+
+\begin{table}[]
+\centering
+\caption{Descriptive Statistics by Party}
+\label{my-label}
+\begin{tabular}{ccccc}
+Dataset    & Party       & Vote Totals & Mean   & Std\_Dev \\ \hline
+Montgomery & Republican  & 2230         & 0.4167 & 0.4930    \\
+Montgomery & Democratic  & 2016         & 0.3768 & 0.4845   \\
+Montgomery & Independent & 1043         & 0.1949 & 0.3962   \\ \hline
+Bucks      & Republican  & 16808        & 0.3436 & 0.4748   \\
+Bucks      & Democratic  & 22555        & 0.461  & 0.4984   \\
+Bucks      & Independent & 8979         & 0.1835 & 0.3871   \\ \hline
+Voter      & Republican  & 46085        & 0.3413 & 0.4742   \\
+Voter      & Democratic  & 71048        & 0.5263 & 0.4993   \\
+Voter      & Independent & 16334        & 0.121  & 0.3261  \\ \hline \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Descriptive Statistics by Age}
+\label{my-label}
+\begin{tabular}{lllll}
+\multicolumn{1}{c}{Data Set} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}Standard \\ Deviation\end{tabular}} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ \hline
+Montgomery                   & 43.81                    & 16.73                                                                             & 20                      & 104                     \\
+Bucks                        & 44.83                    & 15.99                                                                             & 20                      & 104                     \\
+Voter Data                   & 49.57                    & 17.50                                                                             & 0                       & 112                    \\ 
+\hline 
+\hline
+\end{tabular}
+\end{table}
+
+\section{Appendix}\label{appendix}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{question_1-2.png}
+\caption{Figure 1: Democratic Voters and Movers}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{question_2.png}
+\caption{Figure 2: Parties in Space}
+\end{figure}
 
 \end{document}

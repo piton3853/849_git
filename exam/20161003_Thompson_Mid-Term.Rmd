@@ -81,12 +81,10 @@ For the following questions, use whatever tools you deem appropriate form the Ar
 
 <span style="color:navy">To compute and calculate the Democratic $\%$ of total registered voters I needed to create a new field in the `BC` and `MC` shapefiles.  I completed these computations prior to merging all of the data to ensure that they were carried over in each of the `SJ`s.  First, I created a new field called `vote_total`.  Using the field calculator tool, I added the `Republican`, `Democratic`, and `Independent` fields together.  This produced a one in each row of the `vote_total`.  Next, I used the statistics tool to calculate the total sum of from the `Democratic` field and the the sum from the `vote_total` fields.  I conducted statistical analysis before and after conducting the joins.  The Table 1 below shows the outcomes.  Note there is no significant difference in the percentages either pre- or post-join.</span>
 
-
-
 \begin{table}[]
 \centering
 \caption{Percentage of Democratic Voters}
-\begin{tabular}{lll}
+\begin{tabular}{ccc}
 Field       & Pre-Join & Post-Join \\
 \hline
 Democratic  & 71,048   & 133,467   \\
@@ -113,11 +111,13 @@ def is_positive(x):
 \centering
 \caption{Percentage of Democratic Movers}
 \label{my-label}
-\begin{tabular}{llll}
+\begin{tabular}{cccc}
 Field       & Montgomery & Bucks    & Sum      \\
 \hline
 Democratic  & 2,016      & 22,555   & 24,571   \\
 move\_total & 4,620      & 42,040   & 46,660   \\
+\hline
+\hline
 Percentages & 43.63 \%   & 53.65 \% & 52.66 \%
 \end{tabular}
 \end{table}
@@ -128,9 +128,12 @@ To produce my maps I followed some formatting guidelines.  First, I always inclu
 
 This depicts a strong concentration of Democratic voters located in the southeastern portion of the country.  Democratic voters show a propensity for migration with a large percentage moving in and around the southeastern portion of the county.  
 
-Note that this data does not reflect the `MOVER` field from the `MC` dataset.  The `MOVER` variable was not used because it was only available in the `MC` dataset and only depicted a small swath of migration running from northwest to southeast along the southwestern third of the county. 
+Note that this data does not reflect the `MOVER` field from the `MC` dataset.  The `MOVER` variable was not used because it was only available in the `MC` dataset and only depicted a small swath of migration running from northwest to southeast along the southwestern third of the county.  All map figures will be available in the Appendix.
 
-![Figure 1:  Democratic Voters and Movers](question_1-2.png)
+
+[comment]:  This is where Figure 1 would have gone.
+
+
 
 2.  How would you characterize the spatial distribution of Republicans, Democrats, and Independents in PA CD8?  Write up two paragraphs based on what you have found, describing how you used ArcGIS to address the question.  (20 points)
 
@@ -138,43 +141,57 @@ Democrats, by and large, tend to be located in the south eastern part of the map
 
 I used a percentage of total voters for each party and compared them to one another, as depicted in Figure 2.  This distribution by percentage was calculated using the `Sum_Sum_Democrat`, `Sum_Sum_Republican` and `Sum_Sum_Independent` variables normalized by `Sum_Sum_vote_total` variable.  I utilized a five quantile break.
 
-![Figure 2:  Parties in Space](question_2.png)
+
+[//]: This is where Figure 2 woud have gone.
 
 3.  The data included also show two populations of recent movers from inside PA and from nearby states.  How do the recent movers in Montogomery and Bucks counties compare by age and by party registration to the entire PA_CD8 voting populations?  Explain your answer in no more than one page.
 
-```{r data analysis, include=FALSE}
-rm(list=ls())
-cat("\014")
-library(dplyr)
-library(ggplot2)
-library(tidyr)
-library(stargazer)
-setwd("C:/R_Git/gvpt849_git/exam")
-data <- read.csv("descriptive_threeDatasets.csv", sep = ",",header = T)
-save(data, file = "data.RData")
-load("data.RData")
-stargazer(data,type = 'text')
-```
-To answer this question I pulled the descriptive statistics for each dataset (`BC`, `MC`, `voter`) and collected the number of people that voted in each party, the party means, and the party standard deviations.  I also collected the mean, standard deviation, minimum, and maximum values of the voters from each of the three datasets.
+To answer this question I pulled the descriptive statistics for each dataset (`BC`, `MC`, `voter`) and collected the number of people that voted in each party, the party means, and the party standard deviations (Table 3).  I also collected the mean, standard deviation, minimum, and maximum values of the voters from each of the three datasets (Table 4).
 
-First, I put all of the data together, grouping it by dataset.  The results are depicted in Table 3.  Montgomery voters
+ The Montgomery county movers are represented by a higher percentage of Republicans than Democrats (Independents are behing Republicans and Democrats in all three datasets.  The Bucks county Democratic movers ($46.10\%$) have a significantly higher percentage than Montgomery county movers ($37.68\%$).  This indicates that either Democrats in Bucks county are migrating at higher rates, or that the percentage of voters in both counties falls around those means.
+ 
+ One way to differentiate between the two possibilities is to compare the means of the total voter population from the district.  If we assume a normal distribution of Republican, Democratic, and Independent voters throughout the district then the averages of $34.13\%$ for Republicans, $52.63\%$ for Democratic party voters, and $12.10\%$ for Independent voters should represent similar means the two counties.  
+ 
+ The Republican numbers in Bucks county are close to the overall voter mean, but the Montgomery mean is higher.  This indicates that Republicans are migrating to Montgomery county.  The mean of Democratic voters in both Bucks and Montgomery counties is significantly lower than in the `voter` database.  This may indicate less migration for Democratic voters.
+ 
+ The age demographics do not tell us as much without a geographic dispersion.  The mean and standard deviation of the three data sets is relatively similar, as depicted in Table 4.
+
 
 \begin{table}[]
 \centering
-\caption{My caption}
+\caption{Descriptive Statistics by Party}
 \label{my-label}
-\begin{tabular}{lllll}
-Dataset    & Party       & Vote\_Totals & Mean   & Std\_Dev \\
-\hline
+\begin{tabular}{ccccc}
+Dataset    & Party       & Vote Totals & Mean   & Std\_Dev \\ \hline
 Montgomery & Republican  & 2230         & 0.4167 & 0.4930    \\
 Montgomery & Democratic  & 2016         & 0.3768 & 0.4845   \\
-Montgomery & Independent & 1043         & 0.1949 & 0.3962   \\
+Montgomery & Independent & 1043         & 0.1949 & 0.3962   \\ \hline
 Bucks      & Republican  & 16808        & 0.3436 & 0.4748   \\
 Bucks      & Democratic  & 22555        & 0.461  & 0.4984   \\
-Bucks      & Independent & 8979         & 0.1835 & 0.3871   \\
+Bucks      & Independent & 8979         & 0.1835 & 0.3871   \\ \hline
 Voter      & Republican  & 46085        & 0.3413 & 0.4742   \\
 Voter      & Democratic  & 71048        & 0.5263 & 0.4993   \\
-Voter      & Independent & 16334        & 0.121  & 0.3261  
+Voter      & Independent & 16334        & 0.121  & 0.3261  \\ \hline \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Descriptive Statistics by Age}
+\label{my-label}
+\begin{tabular}{lllll}
+\multicolumn{1}{c}{Data Set} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}Standard \\ Deviation\end{tabular}} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ \hline
+Montgomery                   & 43.81                    & 16.73                                                                             & 20                      & 104                     \\
+Bucks                        & 44.83                    & 15.99                                                                             & 20                      & 104                     \\
+Voter Data                   & 49.57                    & 17.50                                                                             & 0                       & 112                    \\ 
+\hline 
 \hline
 \end{tabular}
 \end{table}
+
+# Appendix
+
+![Figure 1:  Democratic Voters and Movers](question_1-2.png)
+
+![Figure 2:  Parties in Space](question_2.png)
