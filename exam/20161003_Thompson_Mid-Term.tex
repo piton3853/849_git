@@ -26,9 +26,9 @@
 \usepackage{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{unicode=true,
-            pdftitle={GVPT392(849): Introduction to GIS for Social Science Research},
+            pdftitle={GVPT392(849): Intro to GIS for Social Science Research},
             pdfauthor={Nicholas Thompson},
-            pdfsubject={Mid-Term Exam},
+            pdfsubject={Mid-Term Exam (extension granted)},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -103,16 +103,16 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{GVPT392(849): Introduction to GIS for Social Science Research}
+  \title{GVPT392(849): Intro to GIS for Social Science Research}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-\subtitle{Mid-Term Exam}
+\subtitle{Mid-Term Exam (extension granted)}
   \author{Nicholas Thompson}
   \preauthor{\centering\large\emph}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{9am Oct3 - 5pm Oct 7, 2016}
+  \date{9am Oct3 - 5pm Oct 9, 2016}
 
 
 % Redefines (sub)paragraphs to behave more like sections
@@ -174,13 +174,10 @@ form the ArcGIS package, but be sure to describe what you did to address
 the questions. Be resourceful, but you need not write more than one page
 in response to each question.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Aggregate the voter and mover data to the census tract level for PA
-  CD8.
-\end{enumerate}
+\clearpage
+
+1. Aggregate the voter and mover data to the census tract level for PA
+CD8.
 
 ~~~~~~To aggregate the data, I used a three phase process with multiple
 steps in each phase. In Phase 1, I imported the data using the catalogue
@@ -339,16 +336,10 @@ swath of migration running from northwest to southeast along the
 southwestern third of the county. All map figures will be available in
 the Appendix.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  How would you characterize the spatial distribution of Republicans,
-  Democrats, and Independents in PA CD8? Write up two paragraphs based
-  on what you have found, describing how you used ArcGIS to address the
-  question. (20 points)
-\end{enumerate}
+2. How would you characterize the spatial distribution of Republicans,
+Democrats, and Independents in PA CD8? Write up two paragraphs based on
+what you have found, describing how you used ArcGIS to address the
+question. (20 points)
 
 Democrats, by and large, tend to be located in the south eastern part of
 the map (which is northern Philadelphia). Republicans are a
@@ -364,17 +355,11 @@ was calculated using the \texttt{Sum\_Sum\_Democrat},
 variables normalized by \texttt{Sum\_Sum\_vote\_total} variable. I
 utilized a five quantile break.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  The data included also show two populations of recent movers from
-  inside PA and from nearby states. How do the recent movers in
-  Montogomery and Bucks counties compare by age and by party
-  registration to the entire PA\_CD8 voting populations? Explain your
-  answer in no more than one page.
-\end{enumerate}
+3. The data included also show two populations of recent movers from
+inside PA and from nearby states. How do the recent movers in
+Montogomery and Bucks counties compare by age and by party registration
+to the entire PA\_CD8 voting populations? Explain your answer in no more
+than one page.
 
 To answer this question I pulled the descriptive statistics for each
 dataset (\texttt{BC}, \texttt{MC}, \texttt{voter}) and collected the
@@ -417,6 +402,22 @@ regiserted voters by each age group. While the ages look identical in
 each map, the scales of the circles are different. Note the low numbers
 of 18-29 year old voters in comparison to 30-49 year olds.
 
+To create the centroid maps I followed this sequence. First I created XY
+coordinate for each dataset by adding a new X and Y field respectively.
+Next using the ``Calculate Gemoetry'' function for each X and Y
+respecitvely. Next, I joined the \texttt{tracts} map with the
+\texttt{BC}, \texttt{MC}, and \texttt{voter} data sets. Then I exported
+the joined tract datasets to a \texttt{tractCentroids} table. This table
+now had the centroids for each voting block.
+
+To finalize the method I created a feature class from the XY
+\texttt{tractCentroids} table. Opening the cataloge in ArcMap, I right
+clicked on \texttt{trackCentroids} and clicked ``Create Feature Class''
+\textgreater{} ``From XY Table''. I make the coordinate system the same
+as all of my other maps, the South Pennsylvania 1984. Finally, I saved
+the file as a File and Personal Geodatabase called
+\texttt{voterTractCentroids}.
+
 \begin{table}[]
 \centering
 \caption{Descriptive Statistics by Party}
@@ -449,6 +450,156 @@ Voter Data                   & 49.57                    & 17.50                 
 \end{tabular}
 \end{table}
 
+\clearpage
+
+4. Are movers more likely to relocate to particular locations than the
+general voter populations within PA CD8? Or are they geoographically
+distributed about the same way? Explain what you find in no more than
+one page.
+
+Based upon the analysis form the maps generated in Figures 3-5, the
+propensity for 18-29 year olds is to reside in large numbers in
+Philadeliphia across the spectrum of voting preferences. People in the
+30-49 age blocks are more likely to live in the more rural areas of
+bucks county, with a strong showing in the more suburban areas (there
+are a large numer in the city, but less than the younger voting block).
+Finally, the oldest block of voters is more broadly dispersed and in
+generally smaller numbers overall.
+
+The migration pattern appears to be that younger people migrate to the
+city, whil middle aged people have a propensity to migrate back to the
+suburbs. Seniors are likely to live in all of the areas in a similar
+pattern to middle aged voters.
+
+\subparagraph{5. How many Bucks County voters live within one half-mile
+of the border with Philadelphia? (10
+points)}\label{how-many-bucks-county-voters-live-within-one-half-mile-of-the-border-with-philadelphia-10-points}
+
+To answer questions \(5, 6,\) and \(7\) I used the following processes
+and steps. Noted differences are discussed in each question, but
+generally a process or step for questions 6 and 7 follow described
+processes or steps described in the following discussion.
+
+There are \(10,318\) voters in Bucks County within one half of a mile of
+the border with Philadelphia. I found this information through the
+following process:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Step 1: Identify data to use:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  The \texttt{voters} dataset and the \texttt{PA\_and\_NJ\_counties}
+  dataset. I used the attribute tables from each. A single entry in the
+  \texttt{PA\_and\_NJ\_counties} dataset identifies the boundary of
+  Philadelphia (object ID \#\(72\)). To find this quickly and select it
+  I sorted ascending the \texttt{City\_Boundary} field and scrolled to
+  the one indicating Philadelphia.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Step 2: I needed to isolate the Bucks county voters within the
+  \texttt{voters} dataset. I opened the attribute table and identified
+  the field I needed to use (\texttt{JURISNAME}). Selecting by
+  attribute, from the selection menue, I chose the \texttt{voter} layer
+  \textgreater{} Method: create new selection \textgreater{} double
+  click \texttt{JURISNAME} \textgreater{} = \textgreater{} ``Get Unique
+  Values'' \textgreater{} double click \texttt{Bucks\ County}
+  \textgreater{} Apply \textgreater{} Ok.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Next I exported the selected features to a new
+  \texttt{File\ and\ Personal\ Geodatabase\ Feature\ Class} called
+  \texttt{Voter\_BucksCty} \textgreater{} Export Data \textgreater{}
+  Selected Records \textgreater{} Output Table. Next I went to the
+  catalog and put the new \texttt{Voter\_BucksCty} into the Table of
+  Contents.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Step 3: To identify the voters within a half of a mile (\(0.5\)
+  miles), I ``Select by Location'' from the ``Selection'' menu.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Select only \texttt{Voter\_BucksCty} layer in the ``Target Layers''
+  dialogue box \textgreater{} Selection method: ``Select from Features''
+  \textgreater{} Source layer: \texttt{PA\_and\_NJ\_counties} (with
+  Philadelphia selected as noted above) \textgreater{} Spatial selection
+  method for target features: ``are within a distance of the source
+  layer feature'' \textgreater{} distance = \(0.5\) \textgreater{} unit
+  of measure: ``miles''.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Step 4: Open the \texttt{Voter\_BucksCty} attribute table and ``show
+  selected records''. At the bottom there are two numbers: \(10,318\)
+  records selected of \(425,956\) total records.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  How many Bucks County voters live within one mile of the border with
+  Philadelphia? (10 points)
+\end{enumerate}
+
+There are \(17,206\) voters in Bucks County within one mile of
+Philadelphia.
+
+To answer this question I already had the base processes and layers
+compiled. To change the distance I returned to ``Selection''
+\textgreater{} ``Select by Location''. I kept all of the information the
+same, but I changed the distance from \(0.5\) miles to (\(1.0\)) miles.
+Next, I returned to the \texttt{Voter\_BucksCty} attribute table and
+recorded the new calculated numbers: \(17,206\) records selected of
+\(425,956\) total records.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  What percentage are those two figures of the total Bucks County voter
+  population?
+\end{enumerate}
+
+To answer this question I have all of the data I need from the previous
+questions. Arithmatic reveals the answer:
+
+\begin{itemize}
+\item
+  Voters residing within \(\frac{1}{2}\) mile:
+  \(\frac{10,318}{425,956} = 0.0242\), or \(2.42\%\)
+\item
+  Voters residing within \(1\) mile:
+  \(\frac{17,206}{425,956} = 0.0404\), or \(4.04\%\)
+\end{itemize}
+
 \section{Appendix}\label{appendix}
 
 \begin{figure}[htbp]
@@ -463,7 +614,7 @@ Voter Data                   & 49.57                    & 17.50                 
 \caption{Figure 2: Parties in Space}
 \end{figure}
 
-\includegraphics{question_3a.png} \includegraphics{question_3c.png}
+\includegraphics{question_3a.png} \includegraphics{question_3b.png}
 \includegraphics{question_3c.png}
 
 \end{document}
