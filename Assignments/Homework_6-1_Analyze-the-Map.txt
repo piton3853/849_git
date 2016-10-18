@@ -1,10 +1,10 @@
-1.  What is the total 2007 population of the cities in the Jefferson County study areas?
+1.  What is the total 2007 population of the cities in the Jefferson County study areas?  403,509
 
-2.  What is the total 2007 population of the city in Denver County?
+2.  What is the total 2007 population of the city in Denver County?  578,062
 
-3.  What city had the largest population increase between 2000 and 2007?
+3.  What city had the largest population increase between 2000 and 2007?  Wheat Ridge, CO
 
-4.  What city had the largest population decrease between 2000 and 2007?
+4.  What city had the largest population decrease between 2000 and 2007?  Denver, CO
 
 5.  Name the cities that are within two miles of Wadsworth roads in the study area.  \emph{\textbf{Hint:}} Select all streets, boulevards, parkways, etc., anmed Wadsworth.)
 
